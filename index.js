@@ -1,9 +1,10 @@
 import http from 'http';
-
-http.createServer((request, response) => {
-    response.writeHead(200, {'Content-Type': 'text/html'});
-    response.write('Hello World!');
-    response.end();
+// res, req are objects containing information about our response.
+http.createServer((req, res) => {
+    const value = 10
+    res.writeHead(200, {'Content-Type': 'text/html'});
+res.write(`Hello World: ${value}`);
+    res.end();
  }).listen(4000)
  
-   
+
