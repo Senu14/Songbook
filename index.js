@@ -1,10 +1,23 @@
-import http from 'http';
-// res, req are objects containing information about our response.
-http.createServer((req, res) => {
-    const value = 10
-    res.writeHead(200, {'Content-Type': 'text/html'});
-res.write(`Hello World: ${value}`);
-    res.end();
- }).listen(4000)
- 
+import express from 'express';
+import { router as SongRouter } from '/Routes/song.router.js';
+import dotenv from 'dotenv';
 
+
+// import db from '/config/db.config.js'
+
+
+// db.query(`SELECT title FROM song`, ( err, result) =>{
+//     console.log(result);
+// })
+
+
+dotenv.config();
+
+const app = express();
+app.use(express.urlencoded({
+    extended: true
+}))
+
+const port = process.env.port ||4000;
+
+app.use(SongRouter);

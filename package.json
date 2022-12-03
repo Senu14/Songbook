@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Sangbog i Node",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,8 +17,7 @@
     "url": "https://github.com/Senu14/Songbook/issues"
   },
   "homepage": "https://github.com/Senu14/Songbook#readme",
-  "type": "module",
   "dependencies": {
-    "nodemon": "^2.0.20"
+    "mysql": "^2.18.1"
   }
 }
