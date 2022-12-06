@@ -1,23 +1,31 @@
 import express from 'express';
-import { router as SongRouter } from '/Routes/song.router.js';
 import dotenv from 'dotenv';
+import { router as SongRouter } from './Routes/song.router.js';
+import { router as InitRouter } from './Routes/init.sequelize.router.js';
+
+// import { router as ArtistRouter } from './Routes/artist.router.js';
 
 
-// import db from '/config/db.config.js'
 
 
-// db.query(`SELECT title FROM song`, ( err, result) =>{
-//     console.log(result);
-// })
-
+const app = new express();
 
 dotenv.config();
 
-const app = express();
-app.use(express.urlencoded({
-    extended: true
-}))
 
-const port = process.env.port ||4000;
 
-app.use(SongRouter);
+app.use(express.urlencoded({extended: true }))
+  
+ 
+
+// app.use(express.json())
+
+ app.use(SongRouter);
+ app.use(InitRouter);
+// app.use(ArtistRouter);
+
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+	console.log(`Server kører på port http://localhost:${port}`);
+})

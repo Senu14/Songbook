@@ -1,21 +1,16 @@
 import SongModel from '../Models/song.model.js';
 
-constmodel = new SongModel();
+const model = new SongModel();
 
 class SongController { 
-     constructor() {
-          console.log('This calls a instans of class SongController');
-     }
-
-     list = (req, res) => {
-          const result = model.list();
-          res.send('The list method has been called on the Song Controller class');
-     }
-
-     get = (req, res) => {
-          console.log(req.params.id);
-          res.send('The get method has been called on the Song Controller class');
-     }
+     constructor() { }
+     
+// Song Controller Methods Begin
+    list = async (req, res) => {
+     const result = await SongModel.findAll()
+     res.json(result)
+    }
+// Song Controller Methods End
 }
 
 export default SongController;
