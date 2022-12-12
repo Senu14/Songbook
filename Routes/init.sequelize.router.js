@@ -1,17 +1,19 @@
 import express from 'express';
-import { sequelize } from '../config/db.sequelize.js'
+import  sequelize  from '../config/db.sequelize.js'
+const InitRouter = express.Router()
 
 
 
-const router = express.Router();
+
 
 /* Modeller der skal medtages i intialiseringen */
 
 import SongModel from '../Models/song.model.js'
 import ArtistModel from '../Models/artist.model.js'
 
+
 // Init Router
-router.get('/init', (req, res) => { 
+InitRouter.get('/init', (req, res) => { 
      try { 
          sequelize.sync()
          res.sendStatus(200)
@@ -33,4 +35,4 @@ router.get('/init', (req, res) => {
 
 
 
-export { router }
+export default InitRouter 
