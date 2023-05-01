@@ -33,7 +33,7 @@ app.use(SongRouter);
 app.use(ArtistRouter);
 //  app.use(UserRouter)
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4200;
 
 app.listen(port, () => {
 	console.log(`Server kører på port http://localhost:${port}`);
