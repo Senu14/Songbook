@@ -7,6 +7,8 @@ import ArtistModel from "../Models/artist.model.js";
 	 * @param {Object} req Express Request Object
 	 * @param {Object} res Express Response Object
 	 */
+  ArtistModel.hasMany(SongModel)
+  SongModel.belongsTo(ArtistModel)
 
 
 
